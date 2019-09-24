@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-composecurl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/loca">
+  <meta name="description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-compose 12curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Johnny&#39;s Blog">
+<meta property="og:title" content="Docker安装Seafile、Onlyoffice">
 <meta property="og:url" content="http://yoursite.com/2019/09/24/Docker安装Seafile、Onlyoffice/index.html">
 <meta property="og:site_name" content="Johnny&#39;s Blog">
-<meta property="og:description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-composecurl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/loca">
+<meta property="og:description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-compose 12curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T06:13:33.399Z">
+<meta property="og:updated_time" content="2019-09-24T09:10:00.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Johnny&#39;s Blog">
-<meta name="twitter:description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-composecurl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/loca">
+<meta name="twitter:title" content="Docker安装Seafile、Onlyoffice">
+<meta name="twitter:description" content="docker安装Seafile、Onlyoffice环境：CentOS 7.6    Docker18.06.3-ce已安装  安装docker-compose 12curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/l">
   <link rel="canonical" href="http://yoursite.com/2019/09/24/Docker安装Seafile、Onlyoffice/">
 
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title> | Johnny's Blog</title>
+  <title>Docker安装Seafile、Onlyoffice | Johnny's Blog</title>
   
 
 
@@ -230,7 +230,7 @@
       <meta itemprop="name" content="Johnny's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">Docker安装Seafile、Onlyoffice
 
           
         </h1>
@@ -246,7 +246,7 @@
                 
               
 
-              <time title="创建时间：2019-09-24 16:43:10 / 修改时间：14:13:33" itemprop="dateCreated datePublished" datetime="2019-09-24T16:43:10+08:00">2019-09-24</time>
+              <time title="创建时间：2019-09-24 17:00:32 / 修改时间：17:10:00" itemprop="dateCreated datePublished" datetime="2019-09-24T17:00:32+08:00">2019-09-24</time>
             </span>
           
             
@@ -267,210 +267,73 @@
       
         <h1 id="docker安装Seafile、Onlyoffice"><a href="#docker安装Seafile、Onlyoffice" class="headerlink" title="docker安装Seafile、Onlyoffice"></a>docker安装Seafile、Onlyoffice</h1><p>环境：CentOS 7.6    Docker18.06.3-ce已安装</p>
 <ul>
-<li>安装docker-compose<pre><code>curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose</code></pre></li>
-<li>创建需要的目录<pre><code>mkdir -p /seafile/data
-mkdir -p /seafile/db
-mkdir -p /seafile/db/db-backup</code></pre></li>
-</ul>
-<p>安装Seafile 6.3.4 </p>
-<ul>
-<li><p>创建docker-compose.yml文件<br>cd /seafile<br>vi docker-compose.yml<br>输入以下内容</p>
-<pre><code>version: &apos;2.0&apos;
-services:
-  memcached:
-    image: memcached:1.5.6
-    container_name: seafile-memcached
-    restart: always
-    entrypoint: memcached -m 256
-    networks:
-      - seafile-net
+<li><p>安装docker-compose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建需要的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /seafile/data</span><br><span class="line">mkdir -p /seafile/db</span><br><span class="line">mkdir -p /seafile/db/db-backup</span><br></pre></td></tr></table></figure>
 
-  seafile:
-    image: seafileltd/seafile:latest
-    container_name: seafile
-    restart: always
-    ports:
-      - &quot;80:80&quot;
-#     - &quot;443:443&quot;  # If https is enabled, cancel the comment.
-    volumes:
-      - /seafile/data:/shared   # Requested, specifies the path to Seafile data persistent store.
-    environment:
-      - DB_HOST=db
-      - DB_ROOT_PASSWD=boqii399  # Requested, the value shuold be root&apos;s password of MySQL service.
-#      - TIME_ZONE=Asia/Shanghai # Optional, default is UTC. Should be uncomment and set to your local time zone.
-      - SEAFILE_ADMIN_EMAIL=johnny@boqii.com # Specifies Seafile admin user, default is &apos;me@example.com&apos;.
-      - SEAFILE_ADMIN_PASSWORD=boqii399     # Specifies Seafile admin password, default is &apos;asecret&apos;.
-      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
-      - SEAFILE_SERVER_HOSTNAME=172.16.54.254  # Specifies your host name if https is enabled.
-    depends_on:
-      - memcached
-    networks:
-      - seafile-net
-
-networks:
-  seafile-net:</code></pre></li>
-<li><p>安装Seafile<br>docker-compose -f docker-compose.yml up -d</p>
 </li>
 </ul>
-<p>安装Seafile7系列版本</p>
-<ul>
-<li><p>创建docker-compose.yml文件<br>cd  /seafile<br>vi docker-compose.yml<br>输入以下内容</p>
-<pre><code>version: &apos;2.0&apos;
-services:
-  db:
-    image: mariadb:10.1
-    container_name: seafile-mysql
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=boqii399  # Requested, set the root&apos;s password of MySQL service.
-      - MYSQL_LOG_CONSOLE=true
-    volumes:
-      - /seafile/db:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
-    networks:
-      - seafile-net
+<h2 id="安装Seafile-6-3-4"><a href="#安装Seafile-6-3-4" class="headerlink" title="安装Seafile 6.3.4"></a>安装Seafile 6.3.4</h2><ul>
+<li><p>创建docker-compose.yml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">  cd /seafile</span><br><span class="line">  vi docker-compose.yml</span><br><span class="line">---输入以下内容---</span><br><span class="line">      version: &apos;2.0&apos;</span><br><span class="line">      services:</span><br><span class="line">        memcached:</span><br><span class="line">          image: memcached:1.5.6</span><br><span class="line">          container_name: seafile-memcached</span><br><span class="line">          restart: always</span><br><span class="line">          entrypoint: memcached -m 256</span><br><span class="line">          networks:</span><br><span class="line">            - seafile-net</span><br><span class="line"></span><br><span class="line">        seafile:</span><br><span class="line">          image: seafileltd/seafile:latest</span><br><span class="line">          container_name: seafile</span><br><span class="line">          restart: always</span><br><span class="line">          ports:</span><br><span class="line">            - &quot;80:80&quot;</span><br><span class="line">      #     - &quot;443:443&quot;  # If https is enabled, cancel the comment.</span><br><span class="line">          volumes:</span><br><span class="line">            - /seafile/data:/shared   # Requested, specifies the path to Seafile data persistent store.</span><br><span class="line">          environment:</span><br><span class="line">            - DB_HOST=db</span><br><span class="line">            - DB_ROOT_PASSWD=boqii399  # Requested, the value shuold be root&apos;s password of MySQL service.</span><br><span class="line">      #      - TIME_ZONE=Asia/Shanghai # Optional, default is UTC. Should be uncomment and set to your local time zone.</span><br><span class="line">            - SEAFILE_ADMIN_EMAIL=johnny@boqii.com # Specifies Seafile admin user, default is &apos;me@example.com&apos;.</span><br><span class="line">            - SEAFILE_ADMIN_PASSWORD=boqii399     # Specifies Seafile admin password, default is &apos;asecret&apos;.</span><br><span class="line">            - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.</span><br><span class="line">            - SEAFILE_SERVER_HOSTNAME=172.16.54.254  # Specifies your host name if https is enabled.</span><br><span class="line">          depends_on:</span><br><span class="line">            - memcached</span><br><span class="line">          networks:</span><br><span class="line">            - seafile-net</span><br><span class="line"></span><br><span class="line">      networks:</span><br><span class="line">        seafile-net:</span><br><span class="line">------------------</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Seafile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -f docker-compose.yml up -d</span><br></pre></td></tr></table></figure>
 
-  memcached:
-    image: memcached:1.5.6
-    container_name: seafile-memcached
-    restart: always
-    entrypoint: memcached -m 256
-    networks:
-      - seafile-net
-
-  seafile:
-    image: seafileltd/seafile-mc:latest
-    container_name: seafile
-    restart: always
-    ports:
-      - &quot;80:80&quot;
-#     - &quot;443:443&quot;  # If https is enabled, cancel the comment.
-    volumes:
-      - /seafile/data:/shared   # Requested, specifies the path to Seafile data persistent store.
-    environment:
-      - DB_HOST=db
-      - DB_ROOT_PASSWD=boqii399  # Requested, the value shuold be root&apos;s password of MySQL service.
-#      - TIME_ZONE=Asia/Shanghai # Optional, default is UTC. Should be uncomment and set to your local time zone.
-      - SEAFILE_ADMIN_EMAIL=johnny@boqii.com # Specifies Seafile admin user, default is &apos;me@example.com&apos;.
-      - SEAFILE_ADMIN_PASSWORD=boqii399     # Specifies Seafile admin password, default is &apos;asecret&apos;.
-      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
-      - SEAFILE_SERVER_HOSTNAME=172.16.54.254 # Specifies your host name if https is enabled.
-    depends_on:
-      - db
-      - memcached
-    networks:
-      - seafile-net
-
-networks:
-  seafile-net:</code></pre></li>
-<li><p>安装Seafile<br>docker-compose -f docker-compose.yml up -d</p>
 </li>
 </ul>
-<p>安装onlyoffice</p>
-<ul>
-<li><p>创建需要的目录<br>mkdir /data/onlyoffice</p>
+<h2 id="安装Seafile7系列版本"><a href="#安装Seafile7系列版本" class="headerlink" title="安装Seafile7系列版本"></a>安装Seafile7系列版本</h2><ul>
+<li><p>创建docker-compose.yml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">  cd  /seafile</span><br><span class="line">  vi docker-compose.yml</span><br><span class="line">---  输入以下内容---</span><br><span class="line">      version: &apos;2.0&apos;</span><br><span class="line">      services:</span><br><span class="line">        db:</span><br><span class="line">          image: mariadb:10.1</span><br><span class="line">          container_name: seafile-mysql</span><br><span class="line">          restart: always</span><br><span class="line">          environment:</span><br><span class="line">            - MYSQL_ROOT_PASSWORD=boqii399  # Requested, set the root&apos;s password of MySQL service.</span><br><span class="line">            - MYSQL_LOG_CONSOLE=true</span><br><span class="line">          volumes:</span><br><span class="line">            - /seafile/db:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.</span><br><span class="line">          networks:</span><br><span class="line">            - seafile-net</span><br><span class="line"></span><br><span class="line">        memcached:</span><br><span class="line">          image: memcached:1.5.6</span><br><span class="line">          container_name: seafile-memcached</span><br><span class="line">          restart: always</span><br><span class="line">          entrypoint: memcached -m 256</span><br><span class="line">          networks:</span><br><span class="line">            - seafile-net</span><br><span class="line"></span><br><span class="line">        seafile:</span><br><span class="line">          image: seafileltd/seafile-mc:latest</span><br><span class="line">          container_name: seafile</span><br><span class="line">          restart: always</span><br><span class="line">          ports:</span><br><span class="line">            - &quot;80:80&quot;</span><br><span class="line">      #     - &quot;443:443&quot;  # If https is enabled, cancel the comment.</span><br><span class="line">          volumes:</span><br><span class="line">            - /seafile/data:/shared   # Requested, specifies the path to Seafile data persistent store.</span><br><span class="line">          environment:</span><br><span class="line">            - DB_HOST=db</span><br><span class="line">            - DB_ROOT_PASSWD=boqii399  # Requested, the value shuold be root&apos;s password of MySQL service.</span><br><span class="line">      #      - TIME_ZONE=Asia/Shanghai # Optional, default is UTC. Should be uncomment and set to your local time zone.</span><br><span class="line">            - SEAFILE_ADMIN_EMAIL=johnny@boqii.com # Specifies Seafile admin user, default is &apos;me@example.com&apos;.</span><br><span class="line">            - SEAFILE_ADMIN_PASSWORD=boqii399     # Specifies Seafile admin password, default is &apos;asecret&apos;.</span><br><span class="line">            - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.</span><br><span class="line">            - SEAFILE_SERVER_HOSTNAME=172.16.54.254 # Specifies your host name if https is enabled.</span><br><span class="line">          depends_on:</span><br><span class="line">            - db</span><br><span class="line">            - memcached</span><br><span class="line">          networks:</span><br><span class="line">            - seafile-net</span><br><span class="line"></span><br><span class="line">      networks:</span><br><span class="line">        seafile-net:</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>创建docker-compose.yaml文件<br>cd  /data/onlyoffice<br>vi docker-compose.yml<br>输入以下内容</p>
-<pre><code>version: &apos;2.0&apos;
-services:
-  onlyoffice-documentserver:
-    container_name: onlyoffice
-    restart: always
-    image: onlyoffice/documentserver:latest
-#    environment:
-#      - AMQP_SERVER_URL=amqp://guest:guest@onlyoffice-activemq
-#      - AMQP_SERVER_TYPE=activemq
-#    stdin_open: true
-    ports:
-      - &apos;8001:80&apos;
-#      - &apos;443:443&apos;
-#    networks:
-#     - onlyoffice
+<li><p>安装Seafile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  docker-compose -f docker-compose.yml up -d</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 
-#  onlyoffice-activemq:
-#    container_name: onlyoffice-activemq
-#    image: webcenter/activemq:5.14.3
-#    environment:
-#      - ACTIVEMQ_USERS_guest=guest
-#      - ACTIVEMQ_GROUPS_owners=guest
-#    restart: always
-#    networks:
-#     - onlyoffice
-#    expose:
-#      - &apos;5672&apos;
-
-networks:
-  onlyoffice:
-#    driver: &apos;bridge&apos;</code></pre></li>
-<li><p>安装onlyoffice<br>docker-compose -f docker-compose.yml up -d</p>
-</li>
-<li><p>启动容器<br>docker start &lt;容器名&gt;</p>
-</li>
-<li><p>开机自启动容器<br>docker update –restart=always &lt;容器名&gt;<br>seafile系统配置</p>
 </li>
 </ul>
-<p>备份seafile数据</p>
-<p>Seafile 6.3.4</p>
-<ul>
-<li><p>数据库备份</p>
+<h2 id="安装onlyoffice"><a href="#安装onlyoffice" class="headerlink" title="安装onlyoffice"></a>安装onlyoffice</h2><ul>
+<li><p>创建需要的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/onlyoffice</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建docker-compose.yaml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">  cd  /data/onlyoffice</span><br><span class="line">  vi docker-compose.yml</span><br><span class="line">---  输入以下内容---</span><br><span class="line">      version: &apos;2.0&apos;</span><br><span class="line">      services:</span><br><span class="line">        onlyoffice-documentserver:</span><br><span class="line">          container_name: onlyoffice</span><br><span class="line">          restart: always</span><br><span class="line">          image: onlyoffice/documentserver:latest</span><br><span class="line">      #    environment:</span><br><span class="line">      #      - AMQP_SERVER_URL=amqp://guest:guest@onlyoffice-activemq</span><br><span class="line">      #      - AMQP_SERVER_TYPE=activemq</span><br><span class="line">      #    stdin_open: true</span><br><span class="line">          ports:</span><br><span class="line">            - &apos;8001:80&apos;</span><br><span class="line">      #      - &apos;443:443&apos;</span><br><span class="line">      #    networks:</span><br><span class="line">      #     - onlyoffice</span><br><span class="line"></span><br><span class="line">      #  onlyoffice-activemq:</span><br><span class="line">      #    container_name: onlyoffice-activemq</span><br><span class="line">      #    image: webcenter/activemq:5.14.3</span><br><span class="line">      #    environment:</span><br><span class="line">      #      - ACTIVEMQ_USERS_guest=guest</span><br><span class="line">      #      - ACTIVEMQ_GROUPS_owners=guest</span><br><span class="line">      #    restart: always</span><br><span class="line">      #    networks:</span><br><span class="line">      #     - onlyoffice</span><br><span class="line">      #    expose:</span><br><span class="line">      #      - &apos;5672&apos;</span><br><span class="line"></span><br><span class="line">      networks:</span><br><span class="line">        onlyoffice:</span><br><span class="line">      #    driver: &apos;bridge&apos;</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装onlyoffice<br><code>docker-compose -f docker-compose.yml up -d</code></p>
+</li>
+<li><p>启动容器<br><code>docker start &lt;容器名&gt;</code></p>
+</li>
+<li><p>开机自启动容器<br><code>docker update --restart=always &lt;容器名&gt;</code><br>seafile系统配置</p>
+</li>
+</ul>
+<h2 id="备份seafile数据"><a href="#备份seafile数据" class="headerlink" title="备份seafile数据"></a>备份seafile数据</h2><h3 id="Seafile-6-3-4"><a href="#Seafile-6-3-4" class="headerlink" title="Seafile 6.3.4"></a>Seafile 6.3.4</h3><ul>
+<li>数据库备份<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /seafile/db/db-backup</span><br><span class="line">    docker exec -ti seafile mysqldump  -uroot  --opt ccnet_db &gt; ccnet_db.sql.$(date +&quot;%F&quot;)</span><br><span class="line">    docker exec -ti seafile mysqldump  -uroot --opt seafile_db &gt; seafile_db.sql.$(date +&quot;%F&quot;)</span><br><span class="line">    docker exec -ti seafile mysqldump  -uroot  --opt seahub_db &gt; seahub_db.sql.$(date +&quot;%F&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>—  脚本—<br>      #!/bin/bash<br><br>      cd /seafile/db/db-backup<br><br>      for i in ccnet_db seafile_db seahub_db<br>      do<br>       docker exec -ti seafile mysqldump -uroot –opt $i &gt; $i.sql.$(date +”%F”)<br>      done<br><br>      # 清理30天前<br>      find . -name “<em>sql</em>“ -mtime +30 -delete</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 数据备份</span><br><span class="line">  `rsync -avh --progress /seafile  目标目录(备份目录)`</span><br><span class="line">- 数据恢复</span><br><span class="line">  - 数据库恢复</span><br></pre></td></tr></table></figure>
+
 <pre><code>cd /seafile/db/db-backup
-docker exec -ti seafile mysqldump  -uroot  --opt ccnet_db &gt; ccnet_db.sql.$(date +&quot;%F&quot;)
-docker exec -ti seafile mysqldump  -uroot --opt seafile_db &gt; seafile_db.sql.$(date +&quot;%F&quot;)
-docker exec -ti seafile mysqldump  -uroot  --opt seahub_db &gt; seahub_db.sql.$(date +&quot;%F&quot;)</code></pre><p>脚本</p>
-<pre><code>#!/bin/bash
-
-cd /seafile/db/db-backup
-
-for i in ccnet_db seafile_db seahub_db
-do
- docker exec -ti seafile mysqldump -uroot --opt $i &gt; $i.sql.$(date +&quot;%F&quot;)
-done
-
-# 清理30天前
-find . -name &quot;*sql*&quot; -mtime +30 -delete</code></pre></li>
-<li><p>数据备份<br>rsync -avh –progress /seafile  目标目录(备份目录)</p>
-</li>
-<li><p>数据恢复</p>
-<ul>
-<li>数据库恢复<pre><code>cd /seafile/db/db-backup
 docker exec -ti seafile bash
 mysql ccnet_db &lt; ccnet_db.sql.日期
 mysql seafile_db &lt; seafile_db.sql.日期
-mysql seahub_db &lt; seahub_db.sql.日期</code></pre></li>
-</ul>
-</li>
-<li><p>数据文件恢复<br>rsync -avh –progress 备份目录 /seafile</p>
-</li>
-</ul>
-<p>Seafile 7版本系列</p>
+mysql seahub_db &lt; seahub_db.sql.日期</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- 数据文件恢复</span><br><span class="line">  `rsync -avh --progress 备份目录 /seafile`</span><br><span class="line"></span><br><span class="line">### Seafile 7版本系列</span><br><span class="line"></span><br><span class="line">- 数据库备份</span><br><span class="line">```    </span><br><span class="line">  cd /seafile/db/db-backup</span><br><span class="line">      docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt ccnet_db &gt; ccnet_db.sql.$(date +&quot;%F&quot;)</span><br><span class="line">      docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt seafile_db &gt; seafile_db.sql.$(date +&quot;%F&quot;)</span><br><span class="line">      docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt seahub_db &gt; seahub_db.sql.$(date +&quot;%F&quot;)</span><br><span class="line">---  脚本---</span><br><span class="line">      #!/bin/bash</span><br><span class="line"></span><br><span class="line">      cd /seafile/db/db-backup</span><br><span class="line"></span><br><span class="line">      for i in ccnet_db seafile_db seahub_db</span><br><span class="line">      do</span><br><span class="line">       docker exec -ti seafile-mysql mysqldump -uroot --opt $i &gt; $i.sql.$(date +&quot;%F&quot;)</span><br><span class="line">      done</span><br><span class="line"></span><br><span class="line">      # 清理30天前</span><br><span class="line">      find . -name &quot;*sql*&quot; -mtime +30 -delete</span><br><span class="line">------------</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p>数据库备份</p>
-<pre><code>cd /seafile/db/db-backup
-docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt ccnet_db &gt; ccnet_db.sql.$(date +&quot;%F&quot;)
-docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt seafile_db &gt; seafile_db.sql.$(date +&quot;%F&quot;)
-docker exec -ti seafile-mysql mysqldump  -uroot -pboqii399 --opt seahub_db &gt; seahub_db.sql.$(date +&quot;%F&quot;)</code></pre><p>脚本</p>
-<pre><code>#!/bin/bash
-
-cd /seafile/db/db-backup
-
-for i in ccnet_db seafile_db seahub_db
-do
- docker exec -ti seafile-mysql mysqldump -uroot --opt $i &gt; $i.sql.$(date +&quot;%F&quot;)
-done
-
-# 清理30天前
-find . -name &quot;*sql*&quot; -mtime +30 -delete</code></pre></li>
-<li><p>数据备份<br>rsync -avh –progress /seafile  目标目录(备份目录)</p>
+<li><p>数据备份<br><code>rsync -avh --progress /seafile  目标目录(备份目录)</code></p>
 </li>
 <li><p>数据恢复</p>
 <ul>
-<li>数据库恢复<pre><code>#方法1：
-docker exec -ti seafile-mysql /bin/sh -c &quot; mysql -uroot -pboqii399 ccnet_db &lt; /var/lib/mysql/db-back/ccnet_db.sql.2019-07-25&quot;
-#方法2：
-docker exec -ti seafile-mysql  bash
-mysql -uroot -pboqii399 seafile_db &lt; /var/lib/mysql/db-back/seafile_db.sql.2019-07-25
-mysql -uroot -pboqii399 seahub_db &lt; /var/lib/mysql/db-back/seahub_db.sql.2019-07-25</code></pre></li>
-<li>数据文件恢复<br>rsync -avh –progress 备份目录 /seafile</li>
+<li><p>数据库恢复</p>
+<pre><code>#方法1：
+`docker exec -ti seafile-mysql /bin/sh -c &quot; mysql -uroot -pboqii399 ccnet_db &lt; /var/lib/mysql/db-back/ccnet_db.sql.2019-07-25&quot;`
+#方法2：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -ti seafile-mysql  bash</span><br><span class="line">mysql -uroot -pboqii399 seafile_db &lt; /var/lib/mysql/db-back/seafile_db.sql.2019-07-25</span><br><span class="line">mysql -uroot -pboqii399 seahub_db &lt; /var/lib/mysql/db-back/seahub_db.sql.2019-07-25</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据文件恢复<br><code>rsync -avh --progress 备份目录 /seafile</code></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -547,7 +410,7 @@ mysql -uroot -pboqii399 seahub_db &lt; /var/lib/mysql/db-back/seahub_db.sql.2019
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker安装Seafile、Onlyoffice"><span class="nav-number">1.</span> <span class="nav-text">docker安装Seafile、Onlyoffice</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker安装Seafile、Onlyoffice"><span class="nav-number">1.</span> <span class="nav-text">docker安装Seafile、Onlyoffice</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Seafile-6-3-4"><span class="nav-number">1.1.</span> <span class="nav-text">安装Seafile 6.3.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Seafile7系列版本"><span class="nav-number">1.2.</span> <span class="nav-text">安装Seafile7系列版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装onlyoffice"><span class="nav-number">1.3.</span> <span class="nav-text">安装onlyoffice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份seafile数据"><span class="nav-number">1.4.</span> <span class="nav-text">备份seafile数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Seafile-6-3-4"><span class="nav-number">1.4.1.</span> <span class="nav-text">Seafile 6.3.4</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
