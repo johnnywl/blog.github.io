@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile    1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJ">
+  <meta name="description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile   1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="seafile部署onlyoffice">
 <meta property="og:url" content="http://yoursite.com/2019/09/24/seafile部署onlyoffice/index.html">
 <meta property="og:site_name" content="Johnny&#39;s Blog">
-<meta property="og:description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile    1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJ">
+<meta property="og:description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile   1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJS">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-24T09:46:16.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="seafile部署onlyoffice">
-<meta name="twitter:description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile    1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJ">
+<meta name="twitter:description" content="为seafile部署onlyoffice 准备工作  成功安装seafie  成功安装onlyoffice   配置seafile   1234567编辑 seahub_settings.py 加入下方配置# Enable Only OfficeENABLE_ONLYOFFICE = TrueVERIFY_ONLYOFFICE_CERTIFICATE = FalseONLYOFFICE_APIJS">
   <link rel="canonical" href="http://yoursite.com/2019/09/24/seafile部署onlyoffice/">
 
 
@@ -274,8 +274,8 @@
 </li>
 <li><p>配置seafile </p>
 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编辑 seahub_settings.py 加入下方配置</span><br><span class="line"># Enable Only Office</span><br><span class="line">ENABLE_ONLYOFFICE = True</span><br><span class="line">VERIFY_ONLYOFFICE_CERTIFICATE = False</span><br><span class="line">ONLYOFFICE_APIJS_URL = &apos;http://172.16.76.13:8001/web-apps/apps/api/documents/api.js&apos;</span><br><span class="line">ONLYOFFICE_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br><span class="line">ONLYOFFICE_EDIT_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br></pre></td></tr></table></figure>
+</ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编辑 seahub_settings.py 加入下方配置</span><br><span class="line"># Enable Only Office</span><br><span class="line">ENABLE_ONLYOFFICE = True</span><br><span class="line">VERIFY_ONLYOFFICE_CERTIFICATE = False</span><br><span class="line">ONLYOFFICE_APIJS_URL = &apos;http://172.16.76.13:8001/web-apps/apps/api/documents/api.js&apos;</span><br><span class="line">ONLYOFFICE_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br><span class="line">ONLYOFFICE_EDIT_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br></pre></td></tr></table></figure><a id="more"></a>
+
 
 <p><strong>注1：其中 VERIFY_ONLYOFFICE_CERTIFICATE 选项如果 onlyoffice 使用了 https 的话可以选择更改为 True 提高安全性，如果是使用 http 协议则改为 False</strong></p>
 <p><strong>注2：如果没使用 memcached 的话，还需要执行 rm /tmp/seahub_cached/ 清空缓存</strong></p>

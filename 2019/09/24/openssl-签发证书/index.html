@@ -273,7 +273,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -days 3650 -key ca.key -out ca.crt</span><br><span class="line">#new：表示生成一个新证书签署请求</span><br><span class="line">#x509：专用于CA生成自签证书，如果不是自签证书则不需要此项</span><br><span class="line">#key：用到的私钥文件</span><br><span class="line">#days：证书的有效期限，单位是day（天）</span><br></pre></td></tr></table></figure>
 
 </li>
-</ol>
+</ol><a id="more"></a>
 <h2 id="颁发证书"><a href="#颁发证书" class="headerlink" title="颁发证书"></a>颁发证书</h2><ol>
 <li><p>生成私钥</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out yourname.key  2048</span><br></pre></td></tr></table></figure>
