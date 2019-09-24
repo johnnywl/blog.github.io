@@ -213,6 +213,302 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/CentOS配置YUM源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Johnny's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/24/CentOS配置YUM源/" class="post-title-link" itemprop="url">CentOS配置YUM源</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 17:49:54 / 修改时间：17:50:36" itemprop="dateCreated datePublished" datetime="2019-09-24T17:49:54+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CentOS配置外部YUM源"><a href="#CentOS配置外部YUM源" class="headerlink" title="CentOS配置外部YUM源"></a>CentOS配置外部YUM源</h1><p>以配置阿里云的为例</p>
+<ul>
+<li>备份</li>
+</ul>
+<p><code>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</code></p>
+<p><img src="e:%5Cit%5C%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8%E6%BA%90%5C1.png" alt></p>
+<p><img src="e:%5Cit%5C%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8%E6%BA%90%5C2.png" alt></p>
+<ul>
+<li>下载新的CentOS-Base.repo 到/etc/yum.repos.d/  #Centos6 yum源</li>
+</ul>
+<p><code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</code></p>
+<p><img src="e:%5Cit%5C%E9%85%8D%E7%BD%AE%E5%A4%96%E9%83%A8%E6%BA%90%5C3.png" alt></p>
+<ul>
+<li><p>下载新的CentOS-Base.repo 到/etc/yum.repos.d/  #Centos7 yum源</p>
+<figure class="highlight plain"><figcaption><span>-O</span><a href="/etc/yum.repos.d/CentOS-Base.repo">http://mirrors.aliyun.com/repo/Centos-7.repo```      #阿里云源</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  ```wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo```   #163源</span><br><span class="line"></span><br><span class="line">* 清除系统所有的yum缓存</span><br><span class="line"></span><br><span class="line">  ```yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成yum缓存</p>
+<figure class="highlight plain"><figcaption><span>makecache```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](e:\it\配置外部源\4.png)</span><br><span class="line">![](e:\it\配置外部源\5.png)</span><br><span class="line"></span><br><span class="line"># CentOS配置外部epel源</span><br><span class="line"></span><br><span class="line">* 安装epel源</span><br></pre></td></tr></table></figure>
+
+<p>yum list | grep epel-release<br>yum install -y epel-release<br>cd /etc/yum.repos.d/<br>ls   # epel源安装成功，比原来多了一个epel.repo和epel-testing.repo文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ### 使用阿里开源镜像提供的epel源</span><br><span class="line"></span><br><span class="line">```wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="清除系统yum缓存，并重新生成新的yum缓存"><a href="#清除系统yum缓存，并重新生成新的yum缓存" class="headerlink" title="清除系统yum缓存，并重新生成新的yum缓存"></a>清除系统yum缓存，并重新生成新的yum缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="查看系统可用的yum源和所有的yum源"><a href="#查看系统可用的yum源和所有的yum源" class="headerlink" title="查看系统可用的yum源和所有的yum源"></a>查看系统可用的yum源和所有的yum源</h3><p><code>yum repolist enabled</code></p>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/seafile部署onlyoffice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Johnny's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/24/seafile部署onlyoffice/" class="post-title-link" itemprop="url">seafile部署onlyoffice</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 17:45:34 / 修改时间：17:46:16" itemprop="dateCreated datePublished" datetime="2019-09-24T17:45:34+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="为seafile部署onlyoffice"><a href="#为seafile部署onlyoffice" class="headerlink" title="为seafile部署onlyoffice"></a>为seafile部署onlyoffice</h1><ul>
+<li><p>准备工作</p>
+<ul>
+<li>成功安装seafie </li>
+<li>成功安装onlyoffice</li>
+</ul>
+</li>
+<li><p>配置seafile </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编辑 seahub_settings.py 加入下方配置</span><br><span class="line"># Enable Only Office</span><br><span class="line">ENABLE_ONLYOFFICE = True</span><br><span class="line">VERIFY_ONLYOFFICE_CERTIFICATE = False</span><br><span class="line">ONLYOFFICE_APIJS_URL = &apos;http://172.16.76.13:8001/web-apps/apps/api/documents/api.js&apos;</span><br><span class="line">ONLYOFFICE_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br><span class="line">ONLYOFFICE_EDIT_FILE_EXTENSION = (&apos;doc&apos;, &apos;docx&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;xls&apos;, &apos;xlsx&apos;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注1：其中 VERIFY_ONLYOFFICE_CERTIFICATE 选项如果 onlyoffice 使用了 https 的话可以选择更改为 True 提高安全性，如果是使用 http 协议则改为 False</strong></p>
+<p><strong>注2：如果没使用 memcached 的话，还需要执行 rm /tmp/seahub_cached/ 清空缓存</strong></p>
+<ul>
+<li>重启seahub</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -f /opt/seafile/conf/seahub_settings.pyc</span><br><span class="line">cd /opt/seafile/seafile-server-latest</span><br><span class="line">./seahub.sh restart</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/CentOS之SSH/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Johnny's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/24/CentOS之SSH/" class="post-title-link" itemprop="url">CentOS之SSH</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 17:44:16 / 修改时间：17:44:32" itemprop="dateCreated datePublished" datetime="2019-09-24T17:44:16+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CentOS解决SSH登录速度慢"><a href="#CentOS解决SSH登录速度慢" class="headerlink" title="CentOS解决SSH登录速度慢"></a>CentOS解决SSH登录速度慢</h1><ul>
+<li><p>备份配置文件</p>
+<figure class="highlight plain"><figcaption><span>/etc/ssh/sshd_config</span><a href="/etc/ssh/sshd_config.bak```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 修改配置文件</span><br></pre></td></tr></table></figure>
+
+<p>vi /etc/ssh/sshd_config</p>
+<h1 id="修改以下2个参数"><a href="#修改以下2个参数" class="headerlink" title="修改以下2个参数"></a>修改以下2个参数</h1><p>输入/,查找GSSAPIAuthentication 赋值为no<br>输入/,查找UseDNS,赋值为 no(该项默认不启用的，要把前面的#删除掉)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 重启ssh服务</span><br></pre></td></tr></table></figure>
+
+<h1 id="CentOS7-重启服务命令"><a href="#CentOS7-重启服务命令" class="headerlink" title="CentOS7 重启服务命令"></a>CentOS7 重启服务命令</h1><p>systemctl restart sshd</p>
+<h1 id="CentOS6-重启服务命令"><a href="#CentOS6-重启服务命令" class="headerlink" title="CentOS6 重启服务命令"></a>CentOS6 重启服务命令</h1><p>service sshd restart</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">## SSH 密钥创建及密钥登录</span><br><span class="line"></span><br><span class="line">* 创建密钥对</span><br></pre></td></tr></table></figure>
+
+<p>cd /用户目录/.ssh<br>ssh-keygen -t rsa</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  ***执行密钥生成命令，基本上是一路回车既可以了，但是需要注意的是：执行命令的过程中是会提示输入密钥的密码的，不需要密码直接回车就行。密钥生成后会在当前目录下多出两个文件，id_rsa和id_rsa.pub，其中id_rsa是私钥，id_rsa.pub这个是公钥。***</span><br><span class="line"></span><br><span class="line">* 公钥添加到需要登录的远程服务器的authorized_keys文件</span><br><span class="line"></span><br><span class="line">  - 方法一：</span><br></pre></td></tr></table></figure>
+
+<p>ssh-copy-id -i /root/.ssh/id_rsa.pub root@远程服务器IP地址或域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 方法二：</span><br><span class="line"></span><br><span class="line">复制id_rsa.pub文件的内容</span><br></pre></td></tr></table></figure>
+
+<p>vi /root/.ssh/id_rsa.pub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">进入远程服务器需要SSH登录的用户的目录下，查看目录下是否有authorized_keys文件没有的话创建下,授予600权限，将复制的id_rsa.pub文件内容进行粘贴到authorized_keys文件中</span><br></pre></td></tr></table></figure>
+
+<p>cd /root/.ssh<br>ls<br>vi authorized_keys<br>chmod 600 /root/.ssh/authorized_keys  # 此文件的权限必须是600</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*  重启ssh服务</span><br></pre></td></tr></table></figure>
+
+<h1 id="CentOS7-重启服务命令-1"><a href="#CentOS7-重启服务命令-1" class="headerlink" title="CentOS7 重启服务命令"></a>CentOS7 重启服务命令</h1><p>systemctl restart sshd</p>
+<h1 id="CentOS6-重启服务命令-1"><a href="#CentOS6-重启服务命令-1" class="headerlink" title="CentOS6 重启服务命令"></a>CentOS6 重启服务命令</h1><p>service sshd restart</p>
+<pre><code>
+
+
+</code></pre></li>
+</ul>
+<h2 id="ssh目录找不到解决方法"><a href="#ssh目录找不到解决方法" class="headerlink" title="~/.ssh目录找不到解决方法"></a>~/.ssh目录找不到解决方法</h2><p>执行<code>ssh localhost</code>即可解决</p>
+<p><strong>原因：</strong></p>
+<p>.ssh 是记录密码信息的文件夹，如果没有登录过root的话，就没有 .ssh 文件夹，因此登录 localhost ，并输入密码就会生成了。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Docker安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -711,7 +1007,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

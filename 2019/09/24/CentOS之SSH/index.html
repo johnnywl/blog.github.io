@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Openssl 创建证书创建根证书CA 生成根证书的私钥 1234openssl genrsa -out ca.key 2048#genrsa  --产生rsa密钥命令#-out    ---输出路径#2048    --密钥的长度位数  生成自签证书，即根证书CA 12345openssl req -new -x509 -days 3650 -key ca.key -out ca.crt#new">
+  <meta name="description" content="CentOS解决SSH登录速度慢 备份配置文件 /etc/ssh/sshd_configlink12+ 修改配置文件  vi /etc/ssh/sshd_config 修改以下2个参数输入/,查找GSSAPIAuthentication 赋值为no输入/,查找UseDNS,赋值为 no(该项默认不启用的，要把前面的#删除掉) 12+ 重启ssh服务  CentOS7 重启服务命令systemctl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="openssl 签发证书">
-<meta property="og:url" content="http://yoursite.com/2019/09/24/openssl-签发证书/index.html">
+<meta property="og:title" content="CentOS之SSH">
+<meta property="og:url" content="http://yoursite.com/2019/09/24/CentOS之SSH/index.html">
 <meta property="og:site_name" content="Johnny&#39;s Blog">
-<meta property="og:description" content="Openssl 创建证书创建根证书CA 生成根证书的私钥 1234openssl genrsa -out ca.key 2048#genrsa  --产生rsa密钥命令#-out    ---输出路径#2048    --密钥的长度位数  生成自签证书，即根证书CA 12345openssl req -new -x509 -days 3650 -key ca.key -out ca.crt#new">
+<meta property="og:description" content="CentOS解决SSH登录速度慢 备份配置文件 /etc/ssh/sshd_configlink12+ 修改配置文件  vi /etc/ssh/sshd_config 修改以下2个参数输入/,查找GSSAPIAuthentication 赋值为no输入/,查找UseDNS,赋值为 no(该项默认不启用的，要把前面的#删除掉) 12+ 重启ssh服务  CentOS7 重启服务命令systemctl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T09:38:21.317Z">
+<meta property="og:updated_time" content="2019-09-24T09:44:32.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="openssl 签发证书">
-<meta name="twitter:description" content="Openssl 创建证书创建根证书CA 生成根证书的私钥 1234openssl genrsa -out ca.key 2048#genrsa  --产生rsa密钥命令#-out    ---输出路径#2048    --密钥的长度位数  生成自签证书，即根证书CA 12345openssl req -new -x509 -days 3650 -key ca.key -out ca.crt#new">
-  <link rel="canonical" href="http://yoursite.com/2019/09/24/openssl-签发证书/">
+<meta name="twitter:title" content="CentOS之SSH">
+<meta name="twitter:description" content="CentOS解决SSH登录速度慢 备份配置文件 /etc/ssh/sshd_configlink12+ 修改配置文件  vi /etc/ssh/sshd_config 修改以下2个参数输入/,查找GSSAPIAuthentication 赋值为no输入/,查找UseDNS,赋值为 no(该项默认不启用的，要把前面的#删除掉) 12+ 重启ssh服务  CentOS7 重启服务命令systemctl">
+  <link rel="canonical" href="http://yoursite.com/2019/09/24/CentOS之SSH/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>openssl 签发证书 | Johnny's Blog</title>
+  <title>CentOS之SSH | Johnny's Blog</title>
   
 
 
@@ -218,7 +218,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/openssl-签发证书/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/CentOS之SSH/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John">
@@ -230,7 +230,7 @@
       <meta itemprop="name" content="Johnny's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">openssl 签发证书
+        <h1 class="post-title" itemprop="name headline">CentOS之SSH
 
           
         </h1>
@@ -246,7 +246,7 @@
                 
               
 
-              <time title="创建时间：2019-09-24 17:37:38 / 修改时间：17:38:21" itemprop="dateCreated datePublished" datetime="2019-09-24T17:37:38+08:00">2019-09-24</time>
+              <time title="创建时间：2019-09-24 17:44:16 / 修改时间：17:44:32" itemprop="dateCreated datePublished" datetime="2019-09-24T17:44:16+08:00">2019-09-24</time>
             </span>
           
             
@@ -265,36 +265,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Openssl-创建证书"><a href="#Openssl-创建证书" class="headerlink" title="Openssl 创建证书"></a>Openssl 创建证书</h1><h2 id="创建根证书CA"><a href="#创建根证书CA" class="headerlink" title="创建根证书CA"></a>创建根证书CA</h2><ol>
-<li><p>生成根证书的私钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 2048</span><br><span class="line">#genrsa  --产生rsa密钥命令</span><br><span class="line">#-out    ---输出路径</span><br><span class="line">#2048    --密钥的长度位数</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成自签证书，即根证书CA</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -days 3650 -key ca.key -out ca.crt</span><br><span class="line">#new：表示生成一个新证书签署请求</span><br><span class="line">#x509：专用于CA生成自签证书，如果不是自签证书则不需要此项</span><br><span class="line">#key：用到的私钥文件</span><br><span class="line">#days：证书的有效期限，单位是day（天）</span><br></pre></td></tr></table></figure>
+        <h1 id="CentOS解决SSH登录速度慢"><a href="#CentOS解决SSH登录速度慢" class="headerlink" title="CentOS解决SSH登录速度慢"></a>CentOS解决SSH登录速度慢</h1><ul>
+<li><p>备份配置文件</p>
+<figure class="highlight plain"><figcaption><span>/etc/ssh/sshd_config</span><a href="/etc/ssh/sshd_config.bak```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 修改配置文件</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<h2 id="颁发证书"><a href="#颁发证书" class="headerlink" title="颁发证书"></a>颁发证书</h2><ol>
-<li><p>生成私钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out yourname.key  2048</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成证书签署请求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -days 3650 -key yourname.key -out yourname.csr</span><br><span class="line"></span><br><span class="line">##subject=/C=CN/ST=SH/L=SH/O=Boqii/OU=IT/CN=yourname/emailAddress=***@***.com#</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在根证书上，颁发证书</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -in yourname.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out yourname.crt</span><br></pre></td></tr></table></figure>
+<p>vi /etc/ssh/sshd_config</p>
+<h1 id="修改以下2个参数"><a href="#修改以下2个参数" class="headerlink" title="修改以下2个参数"></a>修改以下2个参数</h1><p>输入/,查找GSSAPIAuthentication 赋值为no<br>输入/,查找UseDNS,赋值为 no(该项默认不启用的，要把前面的#删除掉)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 重启ssh服务</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><ul>
-<li><p>格式转换为pfx格式的私钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -out yourname.pfx -inkey yourname.key -in yourname.crt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>格式转换为cer格式的公钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -inform pem -in yourname.crt -outform der -out yourname.cer</span><br></pre></td></tr></table></figure>
+<h1 id="CentOS7-重启服务命令"><a href="#CentOS7-重启服务命令" class="headerlink" title="CentOS7 重启服务命令"></a>CentOS7 重启服务命令</h1><p>systemctl restart sshd</p>
+<h1 id="CentOS6-重启服务命令"><a href="#CentOS6-重启服务命令" class="headerlink" title="CentOS6 重启服务命令"></a>CentOS6 重启服务命令</h1><p>service sshd restart</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">## SSH 密钥创建及密钥登录</span><br><span class="line"></span><br><span class="line">* 创建密钥对</span><br></pre></td></tr></table></figure>
 
-</li>
+<p>cd /用户目录/.ssh<br>ssh-keygen -t rsa</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  ***执行密钥生成命令，基本上是一路回车既可以了，但是需要注意的是：执行命令的过程中是会提示输入密钥的密码的，不需要密码直接回车就行。密钥生成后会在当前目录下多出两个文件，id_rsa和id_rsa.pub，其中id_rsa是私钥，id_rsa.pub这个是公钥。***</span><br><span class="line"></span><br><span class="line">* 公钥添加到需要登录的远程服务器的authorized_keys文件</span><br><span class="line"></span><br><span class="line">  - 方法一：</span><br></pre></td></tr></table></figure>
+
+<p>ssh-copy-id -i /root/.ssh/id_rsa.pub root@远程服务器IP地址或域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 方法二：</span><br><span class="line"></span><br><span class="line">复制id_rsa.pub文件的内容</span><br></pre></td></tr></table></figure>
+
+<p>vi /root/.ssh/id_rsa.pub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">进入远程服务器需要SSH登录的用户的目录下，查看目录下是否有authorized_keys文件没有的话创建下,授予600权限，将复制的id_rsa.pub文件内容进行粘贴到authorized_keys文件中</span><br></pre></td></tr></table></figure>
+
+<p>cd /root/.ssh<br>ls<br>vi authorized_keys<br>chmod 600 /root/.ssh/authorized_keys  # 此文件的权限必须是600</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*  重启ssh服务</span><br></pre></td></tr></table></figure>
+
+<h1 id="CentOS7-重启服务命令-1"><a href="#CentOS7-重启服务命令-1" class="headerlink" title="CentOS7 重启服务命令"></a>CentOS7 重启服务命令</h1><p>systemctl restart sshd</p>
+<h1 id="CentOS6-重启服务命令-1"><a href="#CentOS6-重启服务命令-1" class="headerlink" title="CentOS6 重启服务命令"></a>CentOS6 重启服务命令</h1><p>service sshd restart</p>
+<pre><code>
+
+
+</code></pre></li>
 </ul>
+<h2 id="ssh目录找不到解决方法"><a href="#ssh目录找不到解决方法" class="headerlink" title="~/.ssh目录找不到解决方法"></a>~/.ssh目录找不到解决方法</h2><p>执行<code>ssh localhost</code>即可解决</p>
+<p><strong>原因：</strong></p>
+<p>.ssh 是记录密码信息的文件夹，如果没有登录过root的话，就没有 .ssh 文件夹，因此登录 localhost ，并输入密码就会生成了。</p>
 
     </div>
 
@@ -311,8 +315,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/24/Docker安装Seafile、Onlyoffice/" rel="next" title="Docker安装Seafile、Onlyoffice">
-                  <i class="fa fa-chevron-left"></i> Docker安装Seafile、Onlyoffice
+                <a href="/2019/09/24/Docker安装/" rel="next" title="Docker安装">
+                  <i class="fa fa-chevron-left"></i> Docker安装
                 </a>
               
             </div>
@@ -321,8 +325,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/24/Docker安装/" rel="prev" title="Docker安装">
-                  Docker安装 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/24/seafile部署onlyoffice/" rel="prev" title="seafile部署onlyoffice">
+                  seafile部署onlyoffice <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -372,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Openssl-创建证书"><span class="nav-number">1.</span> <span class="nav-text">Openssl 创建证书</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建根证书CA"><span class="nav-number">1.1.</span> <span class="nav-text">创建根证书CA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颁发证书"><span class="nav-number">1.2.</span> <span class="nav-text">颁发证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式转换"><span class="nav-number">1.3.</span> <span class="nav-text">格式转换</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS解决SSH登录速度慢"><span class="nav-number">1.</span> <span class="nav-text">CentOS解决SSH登录速度慢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改以下2个参数"><span class="nav-number">2.</span> <span class="nav-text">修改以下2个参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS7-重启服务命令"><span class="nav-number">3.</span> <span class="nav-text">CentOS7 重启服务命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS6-重启服务命令"><span class="nav-number">4.</span> <span class="nav-text">CentOS6 重启服务命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS7-重启服务命令-1"><span class="nav-number">5.</span> <span class="nav-text">CentOS7 重启服务命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS6-重启服务命令-1"><span class="nav-number">6.</span> <span class="nav-text">CentOS6 重启服务命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh目录找不到解决方法"><span class="nav-number">6.1.</span> <span class="nav-text">~/.ssh目录找不到解决方法</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
