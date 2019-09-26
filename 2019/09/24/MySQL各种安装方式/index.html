@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="mysql安装的各种方式一.Yum安装mysql各种版本首先，yum安装mysql各种版本，就算用了163的yum源，一样也是不能随心所欲的找到想要的版本的，所以，需要配置单独的yum源或下载包含yum源的安装包，两种方式任选其一。第一种：查看系统里面有没有mysql 的repoyum repolist all | grep mysql">
+  <meta name="description" content="mysql安装的各种方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL各种安装方式">
 <meta property="og:url" content="http://yoursite.com/2019/09/24/MySQL各种安装方式/index.html">
 <meta property="og:site_name" content="Johnny&#39;s Blog">
-<meta property="og:description" content="mysql安装的各种方式一.Yum安装mysql各种版本首先，yum安装mysql各种版本，就算用了163的yum源，一样也是不能随心所欲的找到想要的版本的，所以，需要配置单独的yum源或下载包含yum源的安装包，两种方式任选其一。第一种：查看系统里面有没有mysql 的repoyum repolist all | grep mysql">
+<meta property="og:description" content="mysql安装的各种方式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T10:33:32.668Z">
+<meta property="og:updated_time" content="2019-09-26T09:52:26.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL各种安装方式">
-<meta name="twitter:description" content="mysql安装的各种方式一.Yum安装mysql各种版本首先，yum安装mysql各种版本，就算用了163的yum源，一样也是不能随心所欲的找到想要的版本的，所以，需要配置单独的yum源或下载包含yum源的安装包，两种方式任选其一。第一种：查看系统里面有没有mysql 的repoyum repolist all | grep mysql">
+<meta name="twitter:description" content="mysql安装的各种方式">
   <link rel="canonical" href="http://yoursite.com/2019/09/24/MySQL各种安装方式/">
 
 
@@ -246,11 +246,19 @@
                 
               
 
-              <time title="创建时间：2019-09-24 18:32:31 / 修改时间：18:33:32" itemprop="dateCreated datePublished" datetime="2019-09-24T18:32:31+08:00">2019-09-24</time>
+              <time title="创建时间：2019-09-24 18:32:31" itemprop="dateCreated datePublished" datetime="2019-09-24T18:32:31+08:00">2019-09-24</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-26 17:52:26" itemprop="dateModified" datetime="2019-09-26T17:52:26+08:00">2019-09-26</time>
+              </span>
             
           
 
@@ -265,10 +273,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>mysql安装的各种方式</p><p>一.Yum安装mysql各种版本</p><p>首先，yum安装mysql各种版本，就算用了163的yum源，一样也是不能随心所欲的找到想要的版本的，所以，需要配置单独的yum源或下载包含yum源的安装包，两种方式任选其一。<br>第一种：<br>查看系统里面有没有mysql 的repo</p><pre><code>yum repolist all | grep mysql</code></pre><a id="more"></a>
-
-
-<p>如果没有则配置一个（本文以mysql5.6为例）    </p>
+        <p>mysql安装的各种方式</p>
+<a id="more"></a>
+<p>一.Yum安装mysql各种版本</p>
+<p>首先，yum安装mysql各种版本，就算用了163的yum源，一样也是不能随心所欲的找到想要的版本的，所以，需要配置单独的yum源或下载包含yum源的安装包，两种方式任选其一。<br>第一种：<br>查看系统里面有没有mysql 的repo</p>
+<pre><code>yum repolist all | grep mysql</code></pre><p>如果没有则配置一个（本文以mysql5.6为例）    </p>
 <pre><code>vim /etc/yum.repos.d/mysql-community.repo
 [mysql56-community]
 name=MySQL 5.6 Community Server
