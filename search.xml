@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Win7封装]]></title>
+    <url>%2F2019%2F09%2F26%2FWin7%E5%B0%81%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[虚拟机安装步骤就不多说了，下一步到结束 取消这2个方框的勾 新建和配置适合封装WIN7-64位的虚拟机点创建新的虚拟机 自定义 选稍后安装操作系统 选Windows7 64位，如果是封装32位的就选Windows7]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[U盘安装CentOS7.X]]></title>
     <url>%2F2019%2F09%2F26%2FU%E7%9B%98%E5%AE%89%E8%A3%85CentOS7-X%2F</url>
     <content type="text"><![CDATA[U盘安装CentOS7.X 下载 Centos7.X镜像 下载Ultraiso(最新版) 使用Ulrtaiso制作CentOS安装盘 U盘的写入方式选择:USB-HDD+需要牢记U盘的LABEL信息(默认CENTOS 7 x8) 安装 U盘插入电脑上，选择U盘启动 BIOS启动 UEFI启动 在弹出的安装CentOS界面 BIOS启动的，直接回车进行安装 UEFI启动的，按”e”继续编辑，将”LABEL=Centos\x207\x20x\86_64 quiet“，修改为”LABEL=Centos\x207\x20x\8 quiet”。以保证和U盘的LABEL保持一致。 按Ctrl+X继续安装 在对硬盘进行分区时，Device Type 选择”Standard Partition”,且须建立”/boot/efi”分区，大小”50MB”]]></content>
